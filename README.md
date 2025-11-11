@@ -21,7 +21,7 @@ Reliable screen capture for React Native Android. Capture frames at intervals wi
 - 🎭 **Custom regions** - Capture specific screen areas
 - 🚫 **Status bar exclusion** - Optionally exclude status bar from captures
 
-## � How Ite Works
+## � How It Works
 
 React Native Frame Capture uses Android's **MediaProjection API** to capture screen content at regular intervals. Here's the flow:
 
