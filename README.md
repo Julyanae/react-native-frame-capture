@@ -142,8 +142,6 @@ const status = await FrameCapture.requestPermission();
 
 **Note:** This is a runtime permission that must be granted before starting capture. The permission dialog is shown by the Android system, not your app.
 
----
-
 #### `checkPermission()`
 
 Checks if MediaProjection permission (screen capture) has been previously granted without showing the permission dialog.
@@ -155,8 +153,6 @@ const status = await FrameCapture.checkPermission();
 **Returns:** `Promise<PermissionStatus>`
 
 **Note:** Returns `NOT_DETERMINED` if permission was never requested, `GRANTED` if previously granted. MediaProjection permission cannot be checked programmatically on Android, so this only verifies if permission data exists from a previous grant.
-
----
 
 #### `startCapture(options)`
 
@@ -182,8 +178,6 @@ const session = await FrameCapture.startCapture({
 
 **Throws:** `CaptureError` if capture cannot be started
 
----
-
 #### `stopCapture()`
 
 Stops the active capture session.
@@ -193,8 +187,6 @@ await FrameCapture.stopCapture();
 ```
 
 **Returns:** `Promise<void>`
-
----
 
 #### `pauseCapture()`
 
@@ -206,8 +198,6 @@ await FrameCapture.pauseCapture();
 
 **Returns:** `Promise<void>`
 
----
-
 #### `resumeCapture()`
 
 Resumes a paused capture session.
@@ -217,8 +207,6 @@ await FrameCapture.resumeCapture();
 ```
 
 **Returns:** `Promise<void>`
-
----
 
 #### `getCaptureStatus()`
 
@@ -231,8 +219,6 @@ console.log(status.state); // 'idle' | 'capturing' | 'paused'
 
 **Returns:** `Promise<CaptureStatus>`
 
----
-
 #### `checkNotificationPermission()`
 
 Checks if notification permission is granted (Android 13+).
@@ -242,8 +228,6 @@ const status = await FrameCapture.checkNotificationPermission();
 ```
 
 **Returns:** `Promise<PermissionStatus>`
-
----
 
 #### `cleanupTempFrames()`
 
@@ -267,8 +251,6 @@ await FrameCapture.cleanupTempFrames();
 - After uploading frames to a server
 - After processing frames in your app
 - When you want to free up cache storage manually
-
----
 
 #### `addListener(eventType, callback)`
 
@@ -927,7 +909,5 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## 📄 License
 
 MIT © [Nasyx Rakeeb](https://github.com/nasyx-rakeeb)
-
----
 
 Made with ❤️ using [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
