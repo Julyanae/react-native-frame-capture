@@ -54,6 +54,8 @@
     "interval-capture",
     "media-projection",
     "turbo-module",
+    "view-shot",
+    "react-native-view-shot",
     "expo",
     "capture",
     "frame",
@@ -66,6 +68,7 @@
     "image-overlay",
     "text-overlay",
     "kotlin",
+    "javascript",
     "typescript",
     "background-capture",
     "periodic-capture"
